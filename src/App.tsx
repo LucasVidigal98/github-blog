@@ -1,7 +1,7 @@
 import { ThemeProvider } from "styled-components"
 import { defaultTheme } from "./styles/theme"
 import { GlobalStyle } from "./styles/global"
-import { Header } from "./pages/components/Header"
+import { Header } from "./components/Header"
 
 function App() {
   return (
