@@ -15,4 +15,11 @@ export const GlobalStyle = createGlobalStyle`
   body, input, textarea, button {
     font: 400 1rem Nunito, sans-serif;
   }
+
+  a {
+    &:hover {
+      border-bottom: 1px solid ${({ theme }) => theme.blue};
+      transition: border-bottom 0.2s;
+    }
+  }
 `

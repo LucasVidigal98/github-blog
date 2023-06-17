@@ -5,5 +5,6 @@ export const api = axios.create({
 });
 
 export const githubEndpoints = {
-  getUser: '/users/${username}'
+  getUser: '/users/${username}',
+  searchIssue: '/search/issues?q=${texto}repo:${username}/${repo}'
 }
