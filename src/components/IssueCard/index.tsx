@@ -1,19 +1,17 @@
+import { HtmlHTMLAttributes } from 'react';
 import { Container } from './styles';
+import { formatDate } from '../../utils/date.util';
 
-type Props = {
+type Props = HtmlHTMLAttributes<HTMLDivElement> & {
   title: string;
-  id: number;
+  postId: number;
   body: string;
   created_at: string;
 }
 
-export function IssueCard({ title, body, created_at, id }: Props) {
-  function formatDate(date: string) {
-    return new Intl.DateTimeFormat("pt-BR").format(new Date(date));
-  }
-
+export function IssueCard({ title, body, created_at, postId: id, ...rest }: Props) {
   return (
-    <Container>
+    <Container {...rest}>
       <div>
         <h6>{title}</h6>
         <span>{formatDate(created_at)}</span>

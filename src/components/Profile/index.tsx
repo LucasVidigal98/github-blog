@@ -1,4 +1,4 @@
-import { Buildings, GithubLogo, Link, Users } from 'phosphor-react';
+import { ArrowSquareOut, Buildings, GithubLogo, Users } from 'phosphor-react';
 import { Avatar, Container, ProfileInfoConatiner, ProfileInfoConatinerFooter, ProfileInfoConatinerHeader } from './styles';
 import { useTheme } from 'styled-components';
 import { api, githubEndpoints } from '../../lib/api';
@@ -49,7 +49,7 @@ export function Profile() {
 
           <a href={profile.html_url} target='__blank'>
             <span>GITHUB</span>
-            <Link size={14} color={theme?.blue} />
+            <ArrowSquareOut size={14} color={theme?.blue} />
           </a>
 
         </ProfileInfoConatinerHeader>
@@ -59,7 +59,6 @@ export function Profile() {
         </p>
 
         <ProfileInfoConatinerFooter>
-
           <div>
             <GithubLogo size={18} color={theme?.['base-subtile']} />
             <span>{profile.login}</span>

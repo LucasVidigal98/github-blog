@@ -11,7 +11,6 @@ module.exports = {
   plugins: ["react-refresh"],
   rules: {
     "react-refresh/only-export-components": "warn",
-    semi: [1, "always"],
     "prettier/prettier": [
       "always",
       {

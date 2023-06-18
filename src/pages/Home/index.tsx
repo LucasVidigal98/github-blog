@@ -3,6 +3,7 @@ import { IssueCard } from "../../components/IssueCard";
 import { Profile } from "../../components/Profile";
 import { Container, HomeContent, Issues, SearchForm } from "./styles";
 import { api, githubEndpoints } from "../../lib/api";
+import { useNavigate } from "react-router-dom";
 
 const userName = 'LucasVidigal98';
 const repo = 'github-blog';
@@ -12,12 +13,15 @@ type IssuesInfo = {
   id: number;
   body: string;
   created_at: string;
+  number: number;
 }
 
 export function Home() {
   const [searchText, setSearchText] = useState('');
   const [total, setTotal] = useState(0);
   const [issues, setIssues] = useState<IssuesInfo[]>([]);
+
+  const navigate = useNavigate();
 
   async function getIssues(q?: string) {
     const endpoint = githubEndpoints.searchIssue
@@ -33,6 +37,10 @@ export function Home() {
     } catch (error) {
       console.log(error)
     }
+  }
+
+  function goToPost(id: number) {
+    navigate(`/post/${id}`);
   }
 
   useEffect(() => {
@@ -56,13 +64,14 @@ export function Home() {
 
         <Issues>
           {
-            issues.map(({ id, body, title, created_at }) => (
+            issues.map(({ id, body, title, created_at, number }) => (
               <IssueCard
                 key={id}
                 body={body}
                 created_at={created_at}
-                id={id}
+                postId={id}
                 title={title}
+                onClick={() => goToPost(number)}
               />
             ))
           }

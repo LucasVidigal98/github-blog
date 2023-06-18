@@ -6,5 +6,6 @@ export const api = axios.create({
 
 export const githubEndpoints = {
   getUser: '/users/${username}',
-  searchIssue: '/search/issues?q=${texto}repo:${username}/${repo}'
+  searchIssue: '/search/issues?q=${texto}repo:${username}/${repo}',
+  getPost: '/repos/${username}/${repo}/issues/${issue}'
 }
